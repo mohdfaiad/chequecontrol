@@ -1,0 +1,3 @@
+<Configuration>
+	<AppConfig ADDRESS="127.0.0.1" HOSTNAME="dev.uitsoftware.com" PORT="19005" SYSTEMCODE="9" IPADDRESS_USING="TRUE" SERVERNAME="DEV"/>
+</Configuration>

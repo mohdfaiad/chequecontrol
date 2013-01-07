@@ -1,0 +1,214 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{958b7d17-e068-4b94-8f4b-0594465f8a94}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="CQPE000\CQPE000.dproj" />
+    <Projects Include="CQPE001\CQPE001.bdsproj" />
+    <Projects Include="CQPE002\CQPE002.dproj" />
+    <Projects Include="CQPE003\CQPE003.dproj" />
+    <Projects Include="CQPE005\CQPE005.dproj" />
+    <Projects Include="CQPE006\CQPE006.bdsproj" />
+    <Projects Include="CQPE007\CQPE007.dproj" />
+    <Projects Include="CQPE010\CQPE010.dproj" />
+    <Projects Include="CQPQ001\CQPQ001.bdsproj" />
+    <Projects Include="CQPQ002\CQPQ002.bdsproj" />
+    <Projects Include="CQPQ003\CQPQ003.bdsproj" />
+    <Projects Include="CQPR001\CQPR001.bdsproj" />
+    <Projects Include="CQPU001\CQPU001.dproj" />
+    <Projects Include="CQPU002\CQPU002.bdsproj" />
+    <Projects Include="CQPU003\CQPU003.bdsproj" />
+    <Projects Include="CQPU005\CQPU005.dproj" />
+    <Projects Include="CQPU006\CQPU006.dproj" />
+    <Projects Include="CQPU007\CQPU007.bdsproj" />
+    <Projects Include="MainApps\CQ.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="CQ">
+    <MSBuild Projects="MainApps\CQ.dproj" Targets="" />
+  </Target>
+  <Target Name="CQ:Clean">
+    <MSBuild Projects="MainApps\CQ.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQ:Make">
+    <MSBuild Projects="MainApps\CQ.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPU001">
+    <MSBuild Projects="CQPU001\CQPU001.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPU001:Clean">
+    <MSBuild Projects="CQPU001\CQPU001.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPU001:Make">
+    <MSBuild Projects="CQPU001\CQPU001.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPE007">
+    <MSBuild Projects="CQPE007\CQPE007.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPE007:Clean">
+    <MSBuild Projects="CQPE007\CQPE007.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPE007:Make">
+    <MSBuild Projects="CQPE007\CQPE007.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPE002">
+    <MSBuild Projects="CQPE002\CQPE002.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPE002:Clean">
+    <MSBuild Projects="CQPE002\CQPE002.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPE002:Make">
+    <MSBuild Projects="CQPE002\CQPE002.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPE003">
+    <MSBuild Projects="CQPE003\CQPE003.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPE003:Clean">
+    <MSBuild Projects="CQPE003\CQPE003.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPE003:Make">
+    <MSBuild Projects="CQPE003\CQPE003.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPU005">
+    <MSBuild Projects="CQPU005\CQPU005.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPU005:Clean">
+    <MSBuild Projects="CQPU005\CQPU005.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPU005:Make">
+    <MSBuild Projects="CQPU005\CQPU005.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPE010">
+    <MSBuild Projects="CQPE010\CQPE010.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPE010:Clean">
+    <MSBuild Projects="CQPE010\CQPE010.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPE010:Make">
+    <MSBuild Projects="CQPE010\CQPE010.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPU006">
+    <MSBuild Projects="CQPU006\CQPU006.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPU006:Clean">
+    <MSBuild Projects="CQPU006\CQPU006.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPU006:Make">
+    <MSBuild Projects="CQPU006\CQPU006.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPE000">
+    <MSBuild Projects="CQPE000\CQPE000.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPE000:Clean">
+    <MSBuild Projects="CQPE000\CQPE000.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPE000:Make">
+    <MSBuild Projects="CQPE000\CQPE000.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPE005">
+    <MSBuild Projects="CQPE005\CQPE005.dproj" Targets="" />
+  </Target>
+  <Target Name="CQPE005:Clean">
+    <MSBuild Projects="CQPE005\CQPE005.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPE005:Make">
+    <MSBuild Projects="CQPE005\CQPE005.dproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPR001">
+    <MSBuild Projects="CQPR001\CQPR001.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPR001:Clean">
+    <MSBuild Projects="CQPR001\CQPR001.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPR001:Make">
+    <MSBuild Projects="CQPR001\CQPR001.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPU007">
+    <MSBuild Projects="CQPU007\CQPU007.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPU007:Clean">
+    <MSBuild Projects="CQPU007\CQPU007.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPU007:Make">
+    <MSBuild Projects="CQPU007\CQPU007.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPE001">
+    <MSBuild Projects="CQPE001\CQPE001.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPE001:Clean">
+    <MSBuild Projects="CQPE001\CQPE001.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPE001:Make">
+    <MSBuild Projects="CQPE001\CQPE001.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPQ001">
+    <MSBuild Projects="CQPQ001\CQPQ001.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPQ001:Clean">
+    <MSBuild Projects="CQPQ001\CQPQ001.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPQ001:Make">
+    <MSBuild Projects="CQPQ001\CQPQ001.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPU003">
+    <MSBuild Projects="CQPU003\CQPU003.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPU003:Clean">
+    <MSBuild Projects="CQPU003\CQPU003.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPU003:Make">
+    <MSBuild Projects="CQPU003\CQPU003.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPU002">
+    <MSBuild Projects="CQPU002\CQPU002.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPU002:Clean">
+    <MSBuild Projects="CQPU002\CQPU002.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPU002:Make">
+    <MSBuild Projects="CQPU002\CQPU002.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPE006">
+    <MSBuild Projects="CQPE006\CQPE006.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPE006:Clean">
+    <MSBuild Projects="CQPE006\CQPE006.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPE006:Make">
+    <MSBuild Projects="CQPE006\CQPE006.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPQ002">
+    <MSBuild Projects="CQPQ002\CQPQ002.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPQ002:Clean">
+    <MSBuild Projects="CQPQ002\CQPQ002.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPQ002:Make">
+    <MSBuild Projects="CQPQ002\CQPQ002.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="CQPQ003">
+    <MSBuild Projects="CQPQ003\CQPQ003.bdsproj" Targets="" />
+  </Target>
+  <Target Name="CQPQ003:Clean">
+    <MSBuild Projects="CQPQ003\CQPQ003.bdsproj" Targets="Clean" />
+  </Target>
+  <Target Name="CQPQ003:Make">
+    <MSBuild Projects="CQPQ003\CQPQ003.bdsproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="CQ;CQPU001;CQPE007;CQPE002;CQPE003;CQPU005;CQPE010;CQPU006;CQPE000;CQPE005;CQPR001;CQPU007;CQPE001;CQPQ001;CQPU003;CQPU002;CQPE006;CQPQ002;CQPQ003" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="CQ:Clean;CQPU001:Clean;CQPE007:Clean;CQPE002:Clean;CQPE003:Clean;CQPU005:Clean;CQPE010:Clean;CQPU006:Clean;CQPE000:Clean;CQPE005:Clean;CQPR001:Clean;CQPU007:Clean;CQPE001:Clean;CQPQ001:Clean;CQPU003:Clean;CQPU002:Clean;CQPE006:Clean;CQPQ002:Clean;CQPQ003:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="CQ:Make;CQPU001:Make;CQPE007:Make;CQPE002:Make;CQPE003:Make;CQPU005:Make;CQPE010:Make;CQPU006:Make;CQPE000:Make;CQPE005:Make;CQPR001:Make;CQPU007:Make;CQPE001:Make;CQPQ001:Make;CQPU003:Make;CQPU002:Make;CQPE006:Make;CQPQ002:Make;CQPQ003:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

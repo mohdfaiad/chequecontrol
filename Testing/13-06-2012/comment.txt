@@ -1,0 +1,6 @@
+Payment Info 
+	- เอา Good Receive ออก
+	- เพิ่ม model
+	- ดึง มาทั้งหมด ประวัติการ ชำระ
+
+Dail Temporary Cheque Report

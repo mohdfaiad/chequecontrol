@@ -1,0 +1,53 @@
+object DmBank: TDmBank
+  OldCreateOrder = False
+  Height = 369
+  Width = 335
+  object ScBk: TSockCon
+    ServerName = 'HLTCSrvr.RemoteHLTCSrvr'
+    Address = '192.168.1.211'
+    Port = 19005
+    LoginID = 'HLTCAPP'
+    Housed = True
+    AutoProv = True
+    Encoded = False
+    AutoConnect = False
+    ConnectionTitle = 'conbk'
+    Deploy = False
+    Left = 56
+    Top = 24
+  end
+  object CdsBank: TRemDataSet
+    Aggregates = <>
+    Params = <>
+    RemoteServer = ScBk
+    Mono = False
+    FillNull = False
+    AutoLink = False
+    AutoDec = 0
+    ProperCap = False
+    AutoApply = False
+    RefreshOnFailed = False
+    ByPass = False
+    TrimChar = False
+    LimitSQLRec = 0
+    Left = 112
+    Top = 32
+  end
+  object CdsExp: TRemDataSet
+    Aggregates = <>
+    Params = <>
+    RemoteServer = ScBk
+    Mono = False
+    FillNull = False
+    AutoLink = False
+    AutoDec = 0
+    ProperCap = False
+    AutoApply = False
+    RefreshOnFailed = False
+    ByPass = False
+    TrimChar = False
+    LimitSQLRec = 0
+    Left = 168
+    Top = 24
+  end
+end

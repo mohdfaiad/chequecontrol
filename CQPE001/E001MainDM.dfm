@@ -1,0 +1,39 @@
+object DME001Main: TDME001Main
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object SC: TSockCon
+    ServerName = 'HLTCSrvr.RemoteHLTCSrvrSAM'
+    Address = '127.0.0.1'
+    Port = 19005
+    LoginID = 'HLTCAPP'
+    Housed = True
+    AutoProv = True
+    Encoded = False
+    AutoConnect = False
+    Deploy = False
+    Left = 24
+    Top = 8
+  end
+  object BNK: TRemDataSet
+    Aggregates = <>
+    IndexFieldNames = 'CQMBNK;CQMBRC'
+    Params = <>
+    ProviderName = 'BNK'
+    RemoteServer = SC
+    AfterEdit = BNKAfterEdit
+    OnNewRecord = BNKNewRecord
+    Mono = False
+    FillNull = False
+    AutoLink = False
+    AutoDec = 0
+    ProperCap = False
+    AutoApply = False
+    RefreshOnFailed = False
+    ByPass = False
+    TrimChar = False
+    LimitSQLRec = 0
+    Left = 80
+    Top = 8
+  end
+end

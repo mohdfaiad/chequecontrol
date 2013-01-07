@@ -1,0 +1,86 @@
+declare @CNO varchar(7)
+declare @DNO varchar(15)
+
+set @DNO='T201204100012'
+
+SELECT 		
+  	@CNO=A.CQMCNO  	
+FROM CQDM007 A
+WHERE A.CQMTNO=@DNO     
+
+
+if object_id( 'tempdb..#aaa' ) is not  null drop table #aaa
+
+
+	select SIDE,CQSRCT,CQSRS1,sum(CQSNET) CQSNET,CQSRS2,IDENTITY(int,1,1) ROWORDER , 1 AS GRP
+	into #aaa
+	from 
+	(
+
+	SELECT 		
+		'A' AS SIDE,
+		--A.CQMTNO,A.CQMDNO,A.CQMBNK,A.CQMBBR,A.CQMDTE,A.CQMCNO,
+		--B.CQSCSN,
+		B.CQSRCT,B.CQSRS1,
+		B.CQSNET,
+		CASE 
+			WHEN B.CQSRCT='N' THEN 'ค่าเช่า'
+			ELSE B.CQSRS2
+		END AS CQSRS2	
+		 -- ,C.CARMDL,C.CARCHS,C.CAREIN,C.CARRGD,C.CAREXP 
+		  --,D.CQMEGN,D.CQMBRH
+		 -- ,E.Code,E.[DLR Name] AS NAME,E.Address
+		 -- ,1 AS ROWORDER
+
+	FROM CQDM007 A
+	LEFT JOIN CQDS003 B ON A.CQMDNO=B.CQSDNO
+	LEFT JOIN DBMCOA03 C ON B.CQSCSN=C.COARUN
+	LEFT JOIN HPMCON00 BB ON B.CQSCSN=BB.CONRUN
+	LEFT JOIN DEALER   E ON BB.CONDEA=E.Code
+	LEFT JOIN CQDM001  D ON A.CQMBNK=D.CQMBNK AND A.CQMBBR=D.CQMBRC
+
+	WHERE A.CQMTNO=@DNO
+
+	) as AAA
+	group by SIDE,CQSRCT,CQSRS1,CQSRS2 
+
+	select  * from #aaa 
+	union SELECT 'A','','',0.00,'',3,2
+	UNION  SELECT 'A','','',0.00,'',4,2
+	UNION  SELECT 'A','','',0.00,'',5,2
+	UNION  SELECT 'A','','',0.00,'',6,2
+	UNION  SELECT 'A','','',0.00,'',7,2
+	UNION  SELECT 'A','','',0.00,'',8,2
+	UNION  SELECT 'A','','',0.00,'',9,2
+	UNION  SELECT 'A','','',0.00,'',10,2
+	UNION  SELECT 'A','','',0.00,'',11,2
+	UNION  SELECT 'A','','',0.00,'',12,2
+	UNION  SELECT 'A','','',0.00,'',13,2
+	UNION  SELECT 'A','','',0.00,'',14,2	
+	
+	
+	order by ROWORDER
+
+	--select  * from #aaa 
+/*
+	UNION  SELECT 'A','','',0.00,'',3,2
+	UNION  SELECT 'A','','',0.00,'',4,2
+	UNION  SELECT 'A','','',0.00,'',5,2
+	UNION  SELECT 'A','','',0.00,'',6,2
+	UNION  SELECT 'A','','',0.00,'',7,2
+	UNION  SELECT 'A','','',0.00,'',8,2
+	UNION  SELECT 'A','','',0.00,'',9,2
+	UNION  SELECT 'A','','',0.00,'',10,2
+	UNION  SELECT 'A','','',0.00,'',11,2
+	UNION  SELECT 'A','','',0.00,'',12,2
+	UNION  SELECT 'A','','',0.00,'',13,2
+	UNION  SELECT 'A','','',0.00,'',14,2
+	*/
+
+
+
+--select 'MASTER' as DTYP , * from (
+--select  * from #aaa --order by ROWORDER,SIDE,CQSRCT
+--union
+-- SELECT 'A','','',0.00,'',3,2
+--) aa

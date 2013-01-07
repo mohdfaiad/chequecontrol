@@ -1,0 +1,12 @@
+
+declare @MaxITM integer
+
+select @MaxITM=Max(a.INSITM) 
+from HPTINS00  a
+where a.INSCRN='8100001'
+
+select @MaxITM
+
+select top 1  * from HPTINS00 where INSCRN='8100001' and INSF11=0 
+union
+select  * from HPTINS00 where INSCRN='8100001' and INSF11=@MaxITM 

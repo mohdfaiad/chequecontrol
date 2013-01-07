@@ -1,0 +1,9 @@
+select * from AS400.S659577E.HPPDTA.HPTBTR00
+
+select * from AS400.S659577E.HPPDTA.HPTBTR00
+
+
+select top 10 * from AS400.S659577E.HPPDTA.HPTBTR00
+
+
+select * from HPPDTA.dbo.HPTRCH00 where RCHRBY='1'

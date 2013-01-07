@@ -1,0 +1,6 @@
+select  * from AS400.S659577E.DBPDTA.DBMTHD00 where THDTB1='PAYBY'  -- description ในการ จ่าย
+select * from HPTRCH00 	-- history ในการจ่าย
+
+THDTB1=RCHRBY
+
+

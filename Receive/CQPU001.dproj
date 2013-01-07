@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{a8bbaf25-ee68-4d81-a7ac-0d2e3b7c8642}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>..\BIN\CQPU001.dll</DCC_DependencyCheckOutputName>
+    <MainSource>CQPU001.dpr</MainSource>
+    <DCC_UsePackage>vcl;rtl;vclx;vclactnband;dbrtl;vcldb;vcldbx;bdertl;dsnap;dbxcds;DbxCommonDriver;dbexpress;dsnapcon;teeUI;teedb;tee;adortl;vclib;ibxpress;IndyCore;IndySystem;IndyProtocols;xmlrtl;inet;IntrawebDB_90_100;Intraweb_90_100;VclSmp;vclie;websnap;webdsnap;inetdbbde;inetdbxpress;soaprtl;dclOfficeXP;frx11;frxADO11;frxBDE11;frxcs11;frxDB11;frxDBX11;frxe11;frxIBX11;frxTee11;fs11;fsADO11;fsBDE11;fsDB11;fsIBX11;fsTee11;dxmdsD11;dxtrmdD11;dxdbtrD11;dxGDIPlusD11;cxLibraryD11;cxEditorsD11;dxThemeD11;cxDataD11;cxExtEditorsD11;dxLayoutControlD11;dxNavBarD11;cxPageControlD11;cxPivotGridD11;cxGridD11;cxTreeListD11;cxSchedulerD11;cxSpreadSheetD11;cxVerticalGridD11;dxBarD11;dxRibbonD11;dxBarDBNavD11;dxBarExtDBItemsD11;dxBarExtItemsD11;cxBarEditItemD11;Jcl;JclVcl;JvCoreD11R;JvSystemD11R;JvStdCtrlsD11R;JvAppFrmD11R;JvBandsD11R;JvDBD11R;JvDlgsD11R;JvBDED11R;JvCmpD11R;JvCryptD11R;JvCtrlsD11R;JvCustomD11R;JvDockingD11R;JvDotNetCtrlsD11R;JvEDID11R;JvGlobusD11R;JvHMID11R;JvInterpreterD11R;JvJansD11R;JvManagedThreadsD11R;JvMMD11R;JvNetD11R;JvPageCompsD11R;JvPluginD11R;JvPrintPreviewD11R;JvRuntimeDesignD11R;JvTimeFrameworkD11R;JvValidatorsD11R;JvWizardD11R;JvXPCtrlsD11R</DCC_UsePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+    <DCC_ExeOutput>..\BIN</DCC_ExeOutput>
+    <DCC_DcuOutput>..\DCU</DCC_DcuOutput>
+    <DCC_ObjOutput>..\DCU</DCC_ObjOutput>
+    <DCC_HppOutput>..\DCU</DCC_HppOutput>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">True</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">56</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1054</VersionInfo><VersionInfo Name="CodePage">874</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.56</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">CQPU001.dpr</Source></Source><Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinscxPCPainterD11.bpl">File C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinscxPCPainterD11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinscxScheduler3PainterD11.bpl">File C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinscxScheduler3PainterD11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinsdxDLPainterD11.bpl">File C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinsdxDLPainterD11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinsdxBarPainterD11.bpl">File C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinsdxBarPainterD11.bpl not found</Excluded_Packages>
+      <Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinsdxNavBar2PainterD11.bpl">File C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dxSkinsdxNavBar2PainterD11.bpl not found</Excluded_Packages>
+    </Excluded_Packages></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="CQPU001.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\BaseFrom\AFromBase.pas" />
+    <DCCReference Include="..\BaseFrom\BaseFrm.pas">
+      <Form>frmBase</Form>
+    </DCCReference>
+    <DCCReference Include="..\BaseFrom\PluginBaseFrm.pas">
+      <Form>frmPluginBase</Form>
+    </DCCReference>
+    <DCCReference Include="..\LIB\UIT_GLOBAL_LIB.PAS" />
+    <DCCReference Include="MainFrm.pas">
+      <Form>frmMain</Form>
+    </DCCReference>
+    <DCCReference Include="ReceiveFrm.pas">
+      <Form>frmReceive</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>

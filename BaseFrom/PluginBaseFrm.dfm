@@ -1,0 +1,30 @@
+object frmPluginBase: TfrmPluginBase
+  Left = 0
+  Top = 0
+  Caption = 'frmPluginBase'
+  ClientHeight = 464
+  ClientWidth = 722
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object MASTERPANE: TPanel
+    Left = 0
+    Top = 0
+    Width = 722
+    Height = 464
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = -123
+    ExplicitTop = -1
+    ExplicitWidth = 845
+    ExplicitHeight = 465
+  end
+end

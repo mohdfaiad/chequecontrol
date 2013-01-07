@@ -1,0 +1,16 @@
+select CQSNET,* from CQDS003 where CQSDNO in ('201201205230001')
+
+select * from CQDM007 where CQMTNO='T201205230001'
+select * from CQDS003 where CQSDNO='201201205230001'
+
+select RCBAMT,* from HPTRCB00 where RCBDOC in ('201205230001')  
+select RCHAMT,* from HPTRCH00 where RCHDOC in ('201205230001')
+select RCDAMT,* from HPTRCD00 where RCDDOC in ('201205230001')
+
+exec sp_RCBatchIU '201201205230001'
+
+/*
+delete  from HPTRCB00 where RCBDOC ='201205230001'
+delete  from HPTRCH00 where RCHDOC ='201205230001'
+delete  from HPTRCD00 where RCDDOC ='201205230001'
+*/

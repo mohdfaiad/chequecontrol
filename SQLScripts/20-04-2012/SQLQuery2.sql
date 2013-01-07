@@ -1,0 +1,75 @@
+--exec sp_RCBatchIU '201201204100125'
+
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,'D' as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,'xxx' as CQMDNO
+	,'00' as CQSITM,1 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,'013' as CQSRTY,CQSAMT -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD,CQSETD,CQSETU
+	,CQSMTD,CQSMTD,CQSMTU
+	,null as CQSREF
+	,0 as CQSICA
+	from CQDS003 where  CQSDNO='201201204100125' and CQSRCT='N'
+	
+	union
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,'D' as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,'xxx' as CQMDNO
+	,'00' as CQSITM,2 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,'094' as CQSRTY,CQSVAT -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD,CQSETD,CQSETU
+	,CQSMTD,CQSMTD,CQSMTU
+	,null as CQSREF
+	,0 as CQSICA
+	from CQDS003 where  CQSDNO='201201204100125' and CQSRCT='N'	
+		
+	union
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,'D' as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,'xxx' as CQMDNO
+	,'00' as CQSITM,3 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,'F81' as CQSRTY,CQSWHT -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD,CQSETD,CQSETU
+	,CQSMTD,CQSMTD,CQSMTU
+	,null as CQSREF
+	,0 as CQSICA
+	from CQDS003 where  CQSDNO='201201204100125' and CQSRCT='N'	 and CQSWHT<>0
+	
+	union
+	
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,'D' as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,'xxx' as CQMDNO
+	,'00' as CQSITM,4 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,CQSRS1 as CQSRTY,CQSNET -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD,CQSETD,CQSETU
+	,CQSMTD,CQSMTD,CQSMTU
+	,null as CQSREF
+	,0 as CQSICA
+	from CQDS003 where  CQSDNO='201201204100125' and CQSRCT='O' and CQSNET<>0	
+
+
+
+	select 
+		a.CQMACT,'2' as CQMPST,null as CQMPSD,'2' as CQMFL1,'2' as CQMFL2
+		,'I' as  CQMFL3,a.CQMBRN,a.CQMPDM,a.CQMPDT,'xxx' as CQMDNO,'00' as CQMITM
+		,'1' as CQMRBY,a.CQMBNK,a.CQMBBR,a.CQMCNO,CQMDTE,a.CQMAMT,'01' as CQMACN,
+		--c.CQMNAE as  CQMCQP
+		'' as  CQMCQP
+		,b.CQMSTS as CQMCQT,a.CQMETD,a.CQMETD,a.CQMETU,a.CQMMTD,a.CQMMTD,a.CQMMTU
+	from CQDM007 a
+	left join CQDM011 b on a.CQMCNO=b.CQMNO2 and a.CQMBNK=b.CQMBNK and a.CQMBBR=b.CQMBBR and a.CQMDNO=b.CQMRFN
+	left join CQDM002 c on b.CQMSTS=c.CQMCDE  -- master chq code
+	where a.CQMDNO='201201204100125'
+	and a.CQMACT='A'
+	
+	select * from CQDM007 where CQMDNO='201201204100125'
+	select * from CQDM011 where CQMNO2='1111111'

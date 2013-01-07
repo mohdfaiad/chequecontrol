@@ -1,0 +1,69 @@
+select * from  CQDM007 where CQMDNO='201201204100065'
+select * from  CQDS003 where CQSDNO='201201204100065'
+
+/*
+select * from  CQDM007 where CQMDNO='201201204100065'
+select * from  CQDS003 where CQSDNO='201201204100065'
+*/
+
+
+--select * from HPPDTA.dbo.HPTRCB00 where RCBDOC='201003003794'
+--select * from HPPDTA.dbo.HPTRCH00 where RCHDOC='201003003794'
+	-- Rental
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,'D' as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,'xx' as CQMDNO
+	,'00' as CQSITM,1 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,'013' as CQSRTY,CQSAMT -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD,CQSETD,CQSETU
+	,CQSMTD,CQSMTD,CQSMTU
+	,null as CQSREF
+	,0 as CQSICA
+	from CQDS003 where  CQSDNO='201201204100065' and CQSRCT='N'
+	
+	union
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,'D' as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,'xx' as CQMDNO
+	,'00' as CQSITM,2 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,'094' as CQSRTY,CQSVAT -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD,CQSETD,CQSETU
+	,CQSMTD,CQSMTD,CQSMTU
+	,null as CQSREF
+	,0 as CQSICA
+	from CQDS003 where  CQSDNO='201201204100065' and CQSRCT='N'	
+		
+	union
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,'D' as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,'xx' as CQMDNO
+	,'00' as CQSITM,3 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,'F81' as CQSRTY,CQSWHT -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD,CQSETD,CQSETU
+	,CQSMTD,CQSMTD,CQSMTU
+	,null as CQSREF
+	,0 as CQSICA
+	from CQDS003 where  CQSDNO='201201204100065' and CQSRCT='N'	 and CQSWHT<>0
+	
+	union
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,'D' as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,'xx' as CQMDNO
+	,'00' as CQSITM,4 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,CQSRS1 as CQSRTY,CQSNET -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD,CQSETD,CQSETU
+	,CQSMTD,CQSMTD,CQSMTU
+	,null as CQSREF
+	,0 as CQSICA
+	from CQDS003 where  CQSDNO='201201204100065' and CQSRCT='O' and CQSNET<>0
+
+
+select * from HPPDTA.dbo.HPTRCD00 where RCDDOC='201003003794'

@@ -1,0 +1,179 @@
+USE [LLSODTA]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_RCBatchIU]    Script Date: 06/29/2012 16:13:50 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+/*
+Update 29-June-2012
+--fixed
+	change RCHACN  = payat from CQDM011
+	** if cheque status ='P' update  RCHPSD=current date and RCHPST=1
+		
+
+Update 28-June-2012 
+--fixed 
+	change	RCDITM = '01'
+	change	RCDSEQ = '01'...'99'
+	change	RCDICA = RCDAMT
+	change	RCHITM = '01'
+	change	CQMFL1 =  (D/C) get from HPMACD00 CPM='2' , CPT='01' 
+*/
+
+
+
+-- exec sp_RCBatchIU '300201206060489'
+ALTER procedure [dbo].[sp_RCBatchIU]
+@RFDNO as  varchar(15)
+
+AS
+declare @DNO varchar(15)  --12
+declare @CNO varchar(7)
+declare @CSN varchar(7)
+declare @RTM varchar(12)
+
+declare @BNK varchar(3)
+declare @BBR varchar(4)
+
+declare @ACT varchar(1)
+declare @STS varchar(1)
+declare @MTD datetime
+declare @CQP varchar(50) 
+declare @PAT varchar(2)
+
+
+
+declare @NEWDOCNO varchar(12)
+
+set @DNO=@RFDNO
+
+select @CNO=CQMCNO,@CSN=CQMCSN,@BNK=CQMBNK,@BBR=CQMBBR,@RTM=RIGHT(CQMTNO,12) 
+,@NEWDOCNO=RIGHT(CQMDNO,12)
+from CQDM007 where CQMDNO=@DNO
+
+
+if  exists(
+	select * from HPTRCH00 where RCHDOC=@NEWDOCNO--RCHRFN = @CNO and RCHBBN=@BNK and RCHBBR=@BBR
+)
+begin  -- update
+	
+	select 
+		@CQP=c.CQMNAE,@STS=a.CQMSTS,@ACT=a.CQMACT,@MTD=a.CQMMTD,@PAT=a.CQMPAT
+	from CQDM011 a
+	left join CQDM002 c on a.CQMSTS=c.CQMCDE  -- master chq code
+	where a.CQMNO2=@CNO and a.CQMBNK=@BNK and a.CQMBBR=@BBR
+	--and a.CQMACT='A'	
+		
+	if @STS='P' 
+	begin
+		update HPTRCH00 set RCHCQT=@STS,RCHPSD={fn now()},RCHPST='1',RCHACT=@ACT,RCHMTM=@MTD  where RCHRFN = @CNO and RCHBBN=@BNK and RCHBBR=@BBR	
+	end else
+	begin
+	    update HPTRCH00 set RCHCQT=@STS,RCHACT=@ACT,RCHMTM=@MTD  where RCHRFN = @CNO and RCHBBN=@BNK and RCHBBR=@BBR	
+	end
+	
+	
+
+end
+else 
+begin -- insert new record
+
+
+    --print 'insert 1'
+	insert into HPTRCB00   --RCB
+	select 
+		CQMACT,'2' as CQMPST,null as CQMPSD
+		,'2' as CQMFL1,'2' as CQMFL2,'I' as  CQMFL3,CQMBRN,CQMPDM,CQMPDT
+		,@NEWDOCNO as CQMDNO1,@RTM as CQMTNO,CQMETD
+		,(GRFTYP+GRFBRN+GRFCOD) as RCBCLC ,'2' as CQMDCT,abs(convert(decimal(18,2),CQMAMT)) as CQMAMT,CQMETD,CQMETD,CQMETU,CQMMTD,CQMMTD,CQMMTU
+	from CQDM007 
+    left join AS400.S659577E.DBPDTA.DBMGRF00 on GRFDES = CQMETU
+	where CQMDNO=@DNO and CQMACT='A'
+
+
+    --print 'insert 2'
+	insert into HPTRCH00   --RCH
+	
+	select
+
+	a.CQMACT,'2' as CQMPST,null as CQMPSD,'2' as CQMFL1,'2' as CQMFL2
+	,'I' as  CQMFL3,a.CQMBRN,a.CQMPDM,a.CQMPDT,@NEWDOCNO as CQMDNO,'01' as CQMITM
+	,'1' as CQMRBY,a.CQMBNK,a.CQMBBR,a.CQMCNO,CQMDTE,abs(convert(decimal(18,2),a.CQMAMT)) as CQMAMT,'             '+b.CQMPAT as CQMACN,
+	--c.CQMNAE as  CQMCQP
+	'' as  CQMCQP
+	,b.CQMSTS as CQMCQT,a.CQMETD,a.CQMETD,a.CQMETU,a.CQMMTD,a.CQMMTD,a.CQMMTU
+		
+	from CQDM007 a
+	left join CQDM011 b on a.CQMCNO=b.CQMNO2
+	left join CQDM002 c on b.CQMSTS=c.CQMCDE  -- master chq code
+	where a.CQMDNO=@DNO
+	and a.CQMACT='A'
+	
+	
+	if object_id( 'tempdb..#temp0011' ) is not  null drop table #temp0011
+	select identity(int,1,1) as ROWSEQ,* 
+	
+	into #temp0011
+	from (
+	
+	
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,(select ACDNET from HPMACD00 where ACDACD='013' and ACDAPD='2' and ACDAPT='01' ) as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,@NEWDOCNO as CQMDNO
+	,'01' as CQSITM,1 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,'013' as CQSRTY,abs(convert(decimal(18,2),(CQSAMT+CQSVAT))) as CQSAMT -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD as RCDETD,CQSETD as RCDETM ,CQSETU as RCDUET
+	,CQSMTD as RCDMTD,CQSMTD as RCDMTM,CQSMTU as RCDUTM
+	,null as CQSREF
+	,abs(convert(decimal(18,2),(CQSAMT+CQSVAT)))  as CQSICA
+	from CQDS003 where  CQSDNO=@DNO and CQSRCT='N'
+
+		
+	union
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,(select ACDNET from HPMACD00 where ACDACD='F81' and ACDAPD='2' and ACDAPT='01' ) as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,@NEWDOCNO as CQMDNO
+	,'01' as CQSITM,3 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,'F81' as CQSRTY,abs(convert (decimal(18,2),CQSWHT)) as CQSWHT -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD as RCDETD,CQSETD as RCDETM ,CQSETU as RCDUET
+	,CQSMTD as RCDMTD,CQSMTD as RCDMTM,CQSMTU as RCDUTM
+	,null as CQSREF
+	,abs(convert (decimal(18,2),CQSWHT)) as CQSICA
+	from CQDS003 where  CQSDNO=@DNO and CQSRCT='N'	 and CQSWHT<>0
+	
+	union
+	select 
+	'A' as CQSACT,'2' as CQMPST,null as CQMPSD,(select ACDNET from HPMACD00 where ACDACD=CQSRS1 and ACDAPD='2' and ACDAPT='01' ) as CQMFL1,'' as CQMFL2,null as CQMFL3
+	,CQSBRN,CQSPDM,CQSPDT,@NEWDOCNO as CQMDNO
+	,'01' as CQSITM,4 as CQSSEQ
+	,'01' as CQSCBN,'2' as CQSCPM,'01' as CQSCPT
+	,CQSCSN,CQSRS1 as CQSRTY,abs(convert(decimal(18,2),CQSNET)) CQSNET -- amount
+	,'1' as CQSRFR,'1' as CQSRTO
+	,CQSETD as RCDETD,CQSETD as RCDETM ,CQSETU as RCDUET
+	,CQSMTD as RCDMTD,CQSMTD as RCDMTM,CQSMTU as RCDUTM
+	,null as CQSREF
+	,abs(convert(decimal(18,2),CQSNET)) as CQSICA
+	from CQDS003 where  CQSDNO=@DNO and CQSRCT='O' and CQSNET<>0	
+	
+	) as xx
+	
+	--print 'insert 3'
+    insert into HPTRCD00
+
+    
+	select 
+		CQSACT,CQMPST,CQMPSD,CQMFL1,CQMFL2,CQMFL3,CQSBRN,CQSPDM,CQSPDT,CQMDNO,CQSITM,RIGHT('00'+rtrim(ltrim(CONVERT(nchar(2),ROWSEQ))),2) as ROWSEQ,CQSCBN,CQSCPM,
+		CQSCPT,CQSCSN,CQSRTY,CQSAMT,CQSRFR,CQSRTO,RCDETD,RCDETM,RCDUET,RCDMTD,RCDMTM,RCDUTM,CQSREF,CQSICA	
+	from 
+	#temp0011
+
+
+end
+

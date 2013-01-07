@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/12/06 17:10:07.883.dproj,C:\Documents and Settings\Administrator\My Documents\RAD Studio\Projects\Project1.dproj=C:\Documents and Settings\Administrator\My Documents\RAD Studio\Projects\CQPE002.dproj</Transaction>
+    <Transaction>2011/12/06 17:11:39.149.dproj,C:\Documents and Settings\Administrator\My Documents\RAD Studio\Projects\CQPE002.dproj=Z:\Source Code\v1\CQPE002\CQPE002.dproj</Transaction>
+    <Transaction>2011/12/06 17:23:37.371.pas,Z:\Source Code\v1\CQPE002\Cheque_Form.pas=</Transaction>
+    <Transaction>2011/12/06 17:23:37.371.dfm,Z:\Source Code\v1\CQPE002\Cheque_Form.dfm=</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{aca5791f-b51d-4955-81da-09a20d82ae99}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>..\BIN\CQPE001.dll</DCC_DependencyCheckOutputName>
+    <MainSource>CQPE001.dpr</MainSource>
+    <DCC_UsePackage>vcl;rtl;vclx;vclactnband;dbrtl;vcldb;vcldbx;bdertl;dsnap;dsnapcon;teeUI;teedb;tee;adortl;vclib;ibxpress;dbxcds;dbexpress;DbxCommonDriver;IndyCore;IndySystem;IndyProtocols;xmlrtl;inet;IntrawebDB_90_100;Intraweb_90_100;VclSmp;vclie;websnap;webdsnap;inetdbbde;inetdbxpress;soaprtl;JclDeveloperTools;Jcl;JclVcl;JclContainers;JvCore;JvSystem;JvStdCtrls;JvAppFrm;JvBands;JvDB;JvDlgs;JvBDE;JvControls;JvCmp;JvCrypt;JvCustom;JvDocking;JvDotNetCtrls;JvGlobus;JvHMI;JvJans;JvManagedThreads;JvMM;JvNet;JvPageComps;JvPascalInterpreter;JvPluginSystem;JvPrintPreview;JvRuntimeDesign;JvTimeFramework;JvWizards;JvXPCtrls;dxCoreD11;dxGDIPlusD11;cxLibraryD11;cxEditorsD11;dxBarD11;dxBarDBNavD11;dxBarExtDBItemsD11;dxBarExtItemsD11;dxRibbonD11;cxBarEditItemD11;dxdbtrD11;dxtrmdD11;dxmdsD11;dxDockingD11;dxThemeD11;dxFlowChartD11;cxPageControlD11;dxComnD11;cxPageControldxBarPopupMenuD11;dxTabbedMDID11;dxLayoutControlD11;dxNavBarD11;dxorgcD11;dxdborD11;cxGridD11;cxPivotGridD11;cxPivotGridChartD11;cxPivotGridOLAPD11;cxTreeListD11;cxTreeListdxBarPopupMenuD11;cxSchedulerD11;cxSchedulerGridD11;dcldxSkinsCoreD11;dxSkinsCoreD11;dxSkinscxPCPainterD11;dxSkinscxSchedulerPainterD11;dxSkinsdxDLPainterD11;dxSkinsdxBarPainterD11;dxSkinsdxNavBarPainterD11;dxSpellCheckerD11;cxSpreadSheetD11;cxVerticalGridD11;dxPSCoreD11;dxPSLnksD11;dxPScxCommonD11;dxPScxExtCommonD11;dxPScxGridLnkD11;dxPSdxLCLnkD11;dxPScxPivotGridLnkD11;dxPScxSchedulerLnkD11;dxPScxSSLnkD11;dxPScxTLLnkD11;dxPScxVGridLnkD11;dxPSTeeChartD11;dxPSDBTeeChartD11;dxPSdxOCLnkD11;dxPSdxDBOCLnkD11;dxPSdxDBTVLnkD11;dxPSdxFCLnkD11;dxPScxPCProdD11;dxPsPrVwAdvD11;dxPSPrVwRibbonD11;dxSkinsdxRibbonPainterD11;frx11;frxADO11;frxBDE11;frxDB11;frxDBX11;frxe11;frxIBX11;frxTee11;fs11;fsADO11;fsBDE11;fsDB11;fsIBX11;fsTee11;cxDataD11;cxExportD11</DCC_UsePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+    <DCC_ExeOutput>..\BIN</DCC_ExeOutput>
+    <DCC_DcuOutput>..\DCU</DCC_DcuOutput>
+    <DCC_ObjOutput>..\DCU</DCC_ObjOutput>
+    <DCC_HppOutput>..\DCU</DCC_HppOutput>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">True</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">152</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1054</VersionInfo><VersionInfo Name="CodePage">874</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.152</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">CQPE001.dpr</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="CQPE001.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="..\BaseFrom\BaseFrm.pas">
+      <Form>frmBase</Form>
+    </DCCReference>
+    <DCCReference Include="..\LIB\UIT_GLOBAL_LIB.PAS" />
+    <DCCReference Include="..\LIB\UIT_UTILS_LIB.pas" />
+    <DCCReference Include="BankBranch.pas">
+      <Form>FormBank</Form>
+    </DCCReference>
+    <DCCReference Include="BankDm.pas">
+      <Form>DmBank</Form>
+      <DesignClass>TDataModule</DesignClass>
+    </DCCReference>
+    <DCCReference Include="EditBank.pas">
+      <Form>FormBankEdit</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>
